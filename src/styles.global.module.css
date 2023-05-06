@@ -1,0 +1,14 @@
+:root {
+  font-family: "Golos";
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 360px;
+  height: 640px;
+}

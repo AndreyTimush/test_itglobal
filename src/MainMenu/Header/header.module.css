@@ -1,0 +1,23 @@
+.headerMain {
+  height: 42px;
+  width: 360px;
+  padding: 10px 15px 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img {
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+}
+
+.lang p {
+  margin-right: 5px;
+}
