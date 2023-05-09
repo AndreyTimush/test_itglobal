@@ -9,31 +9,28 @@ import { TurkeyImg } from "../../../images/TurkeyImg";
 import { store } from "../../../App";
 import { useTranslation } from "react-i18next";
 import { SelectImg } from "../../../images/SelectImg";
-
-interface ILanguage {
-  lang: string;
-}
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, changeLanguage } from "../../../store/store";
 
 export function DropdownMenu() {
+  const dispatch = useDispatch();
   const { i18n } = useTranslation();
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = e.currentTarget;
 
-    const lang: ILanguage = {
-      lang:
-        target.getAttribute("data-country") ||
-        target.parentElement?.getAttribute("data-country") ||
-        "",
-    };
+    const lang: string =
+      target.getAttribute("data-country") ||
+      target.parentElement?.getAttribute("data-country") ||
+      "";
 
     if (lang !== null) {
-      i18n.changeLanguage(lang.lang);
-      store.dispatch({ type: "CHANGE_LANGUAGE", payload: lang });
+      i18n.changeLanguage(lang);
+      dispatch(changeLanguage(lang));
     }
   };
 
-  const currentLanguage = store.getState().lang;
+  const currentLanguage = useSelector<RootState, string>((state) => state.lang);
 
   return (
     <div className={styles.languages}>

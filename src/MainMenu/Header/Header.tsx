@@ -10,33 +10,44 @@ import { BelarusImg } from "../../images/BelarusImg";
 import { NetherlandsImg } from "../../images/NetherlandsImg";
 import { KazakhstanImg } from "../../images/KazakhstanImg";
 import { TurkeyImg } from "../../images/TurkeyImg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  RootState,
+  isOpenedMainMenuAction,
+  isOpenedSubMenuAction,
+  isOpenedLastMenuAction,
+} from "../../store/store";
 
 type ImageObject = {
-  [key: string]: () => JSX.Element;
+  [key: string]: JSX.Element;
 };
 
 const images: ImageObject = {
-  ru: RussianImg,
-  en: USAImg,
-  by: BelarusImg,
-  nld: NetherlandsImg,
-  kz: KazakhstanImg,
-  tr: TurkeyImg,
+  ru: <RussianImg />,
+  en: <USAImg />,
+  by: <BelarusImg />,
+  nld: <NetherlandsImg />,
+  kz: <KazakhstanImg />,
+  tr: <TurkeyImg />,
 };
 
 export function Header() {
+  const dispatch = useDispatch();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [imgSrc, setImgSrc] = useState(images[store.getState().lang]);
+
+  const currentLanguage = useSelector<RootState, string>((state) => state.lang);
+  const imgSrc = images[currentLanguage];
 
   const handleClick = () => {
     if (!isDropdownOpen) setIsDropdownOpen(true);
     else setIsDropdownOpen(false);
   };
 
-  const lang = store.getState().lang;
-  useEffect(() => {
-    setImgSrc(images[store.getState().lang]);
-  }, [lang]);
+  const handleClickCloseMainMenu = () => {
+    dispatch(isOpenedMainMenuAction(false));
+    dispatch(isOpenedSubMenuAction(false));
+    dispatch(isOpenedLastMenuAction(false));
+  };
 
   return (
     <>
@@ -44,11 +55,13 @@ export function Header() {
         <div className={styles.language} onClick={handleClick}>
           <div className={styles.lang}>
             <div className={styles.img}>{imgSrc}</div>
-            <p>{lang.toUpperCase()}</p>
+            <p>{currentLanguage.toUpperCase()}</p>
             <ArrowImg />
           </div>
         </div>
-        <CloseImg />
+        <div onClick={handleClickCloseMainMenu}>
+          <CloseImg />
+        </div>
       </div>
       {isDropdownOpen && <DropdownMenu />}
     </>

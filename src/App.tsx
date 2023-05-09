@@ -3,14 +3,16 @@ import { MainMenu } from "./MainMenu";
 import "./styles.global.module.css";
 import styles from "./App.module.css";
 import { BurgerMenuImg } from "./images/BurgerMenuImg";
-import { reducer } from "./store/reducer";
 import { createStore } from "redux";
 import { initReactI18next } from "react-i18next";
 import i18n from "i18next";
 import translationRu from "./locales/ru.json";
 import translationEn from "./locales/en.json";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { RootState, isOpenedMainMenuAction, rootReducer } from "./store/store";
 
-export const store = createStore(reducer);
+export const store = createStore(rootReducer, composeWithDevTools());
 
 i18n.use(initReactI18next).init({
   lng: "en",
@@ -26,11 +28,15 @@ i18n.use(initReactI18next).init({
 });
 
 function App() {
-  const [openedMenu, setOpenedMenu] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = () => {
-    setOpenedMenu(true);
+    dispatch(isOpenedMainMenuAction(true));
   };
+
+  const openedMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedMainMenu
+  );
 
   return (
     <>
@@ -49,4 +55,10 @@ function App() {
   );
 }
 
-export default App;
+const WrappedApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default WrappedApp;

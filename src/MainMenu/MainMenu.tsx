@@ -2,16 +2,29 @@ import React, { MouseEventHandler, useState } from "react";
 import styles from "./mainmenu.module.css";
 import { Header } from "./Header";
 import { ArrowRightImg } from "../images/ArrowRightImg";
-import { SubMenu } from "./SubMenu";
 import { ArrowLeftImg } from "../images/ArrowLeftImg";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  isOpenedLastMenuAction,
+  isOpenedSubMenuAction,
+  RootState,
+} from "../store/store";
 
 export function MainMenu() {
   const { t } = useTranslation();
-  const [showSubMenu, setShowSubMenu] = useState(false);
+
+  const showSubMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedSubMenu
+  );
+
+  const showLastMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedLastMenu
+  );
+
   const [textClicked, setTextClicked] = useState("");
   const [textSubMenuClicked, setTextSubMenuClicked] = useState("");
-  const [showSubSubMenu, setShowSubSubMenu] = useState(false);
+  const dispatch = useDispatch();
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = event.target as HTMLDivElement;
@@ -19,13 +32,13 @@ export function MainMenu() {
       setTextClicked(target.textContent);
       console.log(target);
     }
-    setShowSubMenu(true);
+    dispatch(isOpenedSubMenuAction(true));
   };
 
   const handleClickSubMenu = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    setShowSubMenu(false);
+    dispatch(isOpenedSubMenuAction(false));
     setTextClicked("");
   };
 
@@ -37,18 +50,20 @@ export function MainMenu() {
       setTextSubMenuClicked(target.textContent);
       console.log(target);
     }
-    setShowSubSubMenu(true);
+    dispatch(isOpenedLastMenuAction(true));
+    dispatch(isOpenedSubMenuAction(false));
   };
 
   const handleClickLastMenu = () => {
-    setShowSubSubMenu(false);
+    dispatch(isOpenedLastMenuAction(false));
+    dispatch(isOpenedSubMenuAction(true));
     setTextSubMenuClicked("");
   };
 
   return (
     <div className={styles.main}>
       <Header />
-      {!showSubMenu && (
+      {!showSubMenu && !showLastMenu && (
         <div className={styles.menu} onClick={handleClick}>
           <div className={styles.choiceMenu}>
             <p>{t("services")}</p>
@@ -68,14 +83,14 @@ export function MainMenu() {
           </div>
         </div>
       )}
-      {!showSubMenu && (
+      {!showSubMenu && !showLastMenu && (
         <div className={styles.footer}>
           <p>{t("contacts")}</p>
           <p>{t("search")}</p>
         </div>
       )}
 
-      {showSubMenu && !showSubSubMenu && (
+      {showSubMenu && (
         <div className={styles.subMenuMain}>
           <div className={styles.headSubMenu} onClick={handleClickSubMenu}>
             <ArrowLeftImg />
@@ -101,7 +116,7 @@ export function MainMenu() {
           </div>
         </div>
       )}
-      {showSubSubMenu && (
+      {showLastMenu && (
         <div className={styles.subMenuMain}>
           <div className={styles.headSubMenu} onClick={handleClickLastMenu}>
             <ArrowLeftImg />
