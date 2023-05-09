@@ -1,0 +1,10 @@
+.burgerMenu {
+  margin: 10px 0 0 20px;
+}
+
+.mainPage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}

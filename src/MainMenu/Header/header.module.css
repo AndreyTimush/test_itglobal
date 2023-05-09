@@ -1,7 +1,10 @@
 .headerMain {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 42px;
   width: 360px;
-  padding: 10px 15px 0 20px;
+  padding: 10px 25px 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;

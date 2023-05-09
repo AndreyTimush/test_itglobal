@@ -1,0 +1,40 @@
+.languages {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0px 6px 10px rgba(116, 137, 155, 0.06),
+    0px 1px 18px rgba(116, 137, 155, 0.04),
+    0px 3px 5px rgba(116, 137, 155, 0.08);
+  border-radius: 2px;
+  height: 292px;
+  width: 180px;
+  left: 12px;
+  top: 42px;
+}
+
+.country {
+  width: 180px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 12px 10px 12px 15px;
+}
+
+.country:first-child {
+  font-weight: 600;
+}
+
+.country p {
+  margin-left: 10px;
+}
+
+.line {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flagAndCountry {
+  display: flex;
+  align-items: center;
+}

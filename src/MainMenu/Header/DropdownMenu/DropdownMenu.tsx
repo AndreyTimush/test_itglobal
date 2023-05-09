@@ -1,0 +1,130 @@
+import React from "react";
+import styles from "./dropdownmenu.module.css";
+import { USAImg } from "../../../images/USAImg";
+import { NetherlandsImg } from "../../../images/NetherlandsImg";
+import { BelarusImg } from "../../../images/BelarusImg";
+import { RussianImg } from "../../../images/RussianImg";
+import { KazakhstanImg } from "../../../images/KazakhstanImg";
+import { TurkeyImg } from "../../../images/TurkeyImg";
+import { store } from "../../../App";
+import { useTranslation } from "react-i18next";
+import { SelectImg } from "../../../images/SelectImg";
+
+interface ILanguage {
+  lang: string;
+}
+
+export function DropdownMenu() {
+  const { i18n } = useTranslation();
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    const target = e.currentTarget;
+
+    const lang: ILanguage = {
+      lang:
+        target.getAttribute("data-country") ||
+        target.parentElement?.getAttribute("data-country") ||
+        "",
+    };
+
+    if (lang !== null) {
+      i18n.changeLanguage(lang.lang);
+      store.dispatch({ type: "CHANGE_LANGUAGE", payload: lang });
+    }
+  };
+
+  const currentLanguage = store.getState().lang;
+
+  return (
+    <div className={styles.languages}>
+      <div className={styles.country}>
+        <p>Страна</p>
+      </div>
+
+      <div
+        data-country="en"
+        style={{ backgroundColor: currentLanguage === "en" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <USAImg />
+            <p style={{ pointerEvents: "none" }}>США</p>
+          </div>
+          <div>{currentLanguage === "en" && <SelectImg />}</div>
+        </div>
+      </div>
+      <div
+        data-country="nld"
+        style={{ backgroundColor: currentLanguage === "nld" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <NetherlandsImg />
+            <p style={{ pointerEvents: "none" }}>Нидерланды</p>
+          </div>
+          <div>{currentLanguage === "nld" && <SelectImg />}</div>
+        </div>
+      </div>
+      <div
+        data-country="by"
+        style={{ backgroundColor: currentLanguage === "by" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <BelarusImg />
+            <p style={{ pointerEvents: "none" }}>Беларусь</p>
+          </div>
+          <div>{currentLanguage === "by" && <SelectImg />}</div>
+        </div>
+      </div>
+      <div
+        data-country="ru"
+        style={{ backgroundColor: currentLanguage === "ru" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <RussianImg />
+            <p style={{ pointerEvents: "none" }}>Россия</p>
+          </div>
+          <div>{currentLanguage === "ru" && <SelectImg />}</div>
+        </div>
+      </div>
+      <div
+        data-country="kz"
+        style={{ backgroundColor: currentLanguage === "kz" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <KazakhstanImg />
+            <p style={{ pointerEvents: "none" }}>Казахстан</p>
+          </div>
+          <div>{currentLanguage === "kz" && <SelectImg />}</div>
+        </div>
+      </div>
+      <div
+        data-country="tr"
+        style={{ backgroundColor: currentLanguage === "tr" ? "#F1F8FE" : "" }}
+        className={styles.country}
+        onClick={handleClick}
+      >
+        <div className={styles.line}>
+          <div className={styles.flagAndCountry}>
+            <TurkeyImg />
+            <p>Турция</p>
+          </div>
+          <div>{currentLanguage === "tr" && <SelectImg />}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
