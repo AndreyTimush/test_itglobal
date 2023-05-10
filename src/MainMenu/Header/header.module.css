@@ -19,6 +19,7 @@
 .lang {
   display: flex;
   align-items: center;
+  padding: 7px 11px 7px 11px;
 }
 
 .lang p {

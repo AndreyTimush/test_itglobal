@@ -49,11 +49,17 @@ export function Header() {
     dispatch(isOpenedLastMenuAction(false));
   };
 
+  const styleLang = {
+    background: "rgba(29, 125, 237, 0.1)",
+    border: "2px solid rgba(131, 188, 255, 0.5)",
+    borderRadius: "2px",
+  };
+
   return (
     <>
       <div className={styles.headerMain}>
         <div className={styles.language} onClick={handleClick}>
-          <div className={styles.lang}>
+          <div className={styles.lang} style={isDropdownOpen ? styleLang : {}}>
             <div className={styles.img}>{imgSrc}</div>
             <p>{currentLanguage.toUpperCase()}</p>
             <ArrowImg />
