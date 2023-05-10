@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
 import styles from "./header.module.css";
 import { CloseImg } from "../../images/CloseImg";
 import { ArrowImg } from "../../images/ArrowImg";
 import { RussianImg } from "../../images/RussianImg";
 import { DropdownMenu } from "./DropdownMenu";
-import { store } from "../../App";
 import { USAImg } from "../../images/USAImg";
 import { BelarusImg } from "../../images/BelarusImg";
 import { NetherlandsImg } from "../../images/NetherlandsImg";
@@ -34,7 +32,6 @@ const images: ImageObject = {
 
 export function Header() {
   const dispatch = useDispatch();
-  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const isDropdownOpen = useSelector<RootState, boolean>(
     (state) => state.isOpenedDropdownMenu
   );
@@ -44,11 +41,6 @@ export function Header() {
 
   const handleClick = () => {
     dispatch(isOpenedDropdownMenuAction(!isDropdownOpen));
-    // if (!isDropDownOpen)
-    // dispatch(isOpenedDropdownMenuAction(true))
-    // else dispatch(isOpenedDropdownMenuAction(false))
-    // if (!isDropdownOpen) setIsDropdownOpen(true);
-    // else setIsDropdownOpen(false);
   };
 
   const handleClickCloseMainMenu = () => {
