@@ -40,10 +40,10 @@ export function SubMenu() {
     <>
       {!showLastMenu ? (
         <div className={styles.subMenuMain}>
-          {/* <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
+          <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
             <ArrowLeftImg />
             <p>{choosedMenu}</p>
-          </div> */}
+          </div>
           <div className={styles.subMenu} onClick={handleClickLastMenu}>
             <div className={styles.choiceMenu}>
               <p>Облачные вычисления</p>
