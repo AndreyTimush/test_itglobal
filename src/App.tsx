@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { MainMenu } from "./MainMenu";
 import "./styles.global.module.css";
 import styles from "./App.module.css";
@@ -40,7 +39,7 @@ function App() {
 
   return (
     <>
-      {!openedMenu && (
+      {!openedMenu ? (
         <>
           <div className={styles.burgerMenu} onClick={handleClick}>
             <BurgerMenuImg />
@@ -49,8 +48,9 @@ function App() {
             <h1>Main page</h1>
           </div>
         </>
+      ) : (
+        <MainMenu />
       )}
-      {openedMenu && <MainMenu />}
     </>
   );
 }

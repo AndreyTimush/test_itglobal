@@ -1,0 +1,31 @@
+.choiceMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.headSubMenu {
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  margin: 77px 30px 0 9px;
+  display: flex;
+  align-items: center;
+}
+
+.headSubMenu p {
+  margin-left: 5px;
+}
+
+.subMenuMain {
+  display: flex;
+  flex-direction: column;
+}
+
+.subMenu {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30px;
+  margin: 41px 30px 0 30px;
+}

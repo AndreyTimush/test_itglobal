@@ -1,16 +1,71 @@
-import React from "react";
-import styles from "./submenu.css";
+import React, { useState } from "react";
+import styles from "./submenu.module.css";
 import { ArrowLeftImg } from "../../images/ArrowLeftImg";
+import { ArrowRightImg } from "../../images/ArrowRightImg";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  RootState,
+  isOpenedLastMenuAction,
+  isOpenedSubMenuAction,
+} from "../../store/store";
+import { LastMenu } from "./LastMenu";
 
-interface IProps {
-  choiceMenu: string;
-}
+export function SubMenu() {
+  const [textSubMenuClicked, setTextSubMenuClicked] = useState("");
+  const showLastMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedLastMenu
+  );
 
-export function SubMenu(props: IProps) {
+  const dispatch = useDispatch();
+
+  const handleClickMainMenu = () => {
+    dispatch(isOpenedSubMenuAction(false));
+  };
+
+  const handleClickLastMenu = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    const target = event.target as HTMLDivElement;
+    if (target && target.textContent) {
+      setTextSubMenuClicked(target.textContent);
+    }
+    dispatch(isOpenedLastMenuAction(true));
+  };
+
+  const choosedMenu = useSelector<RootState, string>(
+    (state) => state.choosedSubMenu
+  );
+
   return (
-    <div>
-      <ArrowLeftImg />
-      <p>{props.choiceMenu}</p>
-    </div>
+    <>
+      {!showLastMenu ? (
+        <div className={styles.subMenuMain}>
+          <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
+            <ArrowLeftImg />
+            <p>{choosedMenu}</p>
+          </div>
+          <div className={styles.subMenu} onClick={handleClickLastMenu}>
+            <div className={styles.choiceMenu}>
+              <p>Облачные вычисления</p>
+              <ArrowRightImg />
+            </div>
+            <div className={styles.choiceMenu}>
+              <p>Выделенные серверы</p>
+              <ArrowRightImg />
+            </div>
+            <div className={styles.choiceMenu}>
+              <p>Платформенные сервисы</p>
+              <ArrowRightImg />
+            </div>
+            <div className={styles.choiceMenu}>
+              <p>Информационная безопасность</p>
+              <ArrowRightImg />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <LastMenu currentMenu={textSubMenuClicked} />
+      )}
+    </>
   );
 }

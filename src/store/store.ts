@@ -1,10 +1,11 @@
-import { Action, ActionCreator, AnyAction, Reducer } from "redux";
+import { ActionCreator, AnyAction, Reducer } from "redux";
 
 export type RootState = {
   lang: string;
   isOpenedMainMenu: boolean;
   isOpenedSubMenu: boolean;
   isOpenedLastMenu: boolean;
+  choosedSubMenu: string;
 };
 
 const initialState = {
@@ -12,12 +13,14 @@ const initialState = {
   isOpenedMainMenu: false,
   isOpenedSubMenu: false,
   isOpenedLastMenu: false,
+  choosedSubMenu: "",
 };
 
 const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
 const OPENED_MAIN_MENU = "OPENED_MAIN_MENU";
 const OPENED_SUB_MENU = "OPENED_SUB_MENU";
 const OPENED_LAST_MENU = "OPENED_LAST_MENU";
+const CHOOSED_SUB_MENU = "CHOOSED_SUB_MENU";
 
 export const changeLanguage: ActionCreator<AnyAction> = (lang) => ({
   type: CHANGE_LANGUAGE,
@@ -45,6 +48,13 @@ export const isOpenedLastMenuAction: ActionCreator<AnyAction> = (
   isOpenedLastMenu,
 });
 
+export const choosedSubMenuAction: ActionCreator<AnyAction> = (
+  choosedSubMenu
+) => ({
+  type: CHOOSED_SUB_MENU,
+  choosedSubMenu,
+});
+
 export const rootReducer: Reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
@@ -66,6 +76,11 @@ export const rootReducer: Reducer = (state = initialState, action) => {
       return {
         ...state,
         isOpenedLastMenu: action.isOpenedLastMenu,
+      };
+    case CHOOSED_SUB_MENU:
+      return {
+        ...state,
+        choosedSubMenu: action.choosedSubMenu,
       };
     default:
       return state;
