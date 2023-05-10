@@ -83,3 +83,7 @@ hr {
 .lastMenuItem {
   height: 96px;
 }
+
+.choiceMenu:hover {
+  background-color: #f1f8fe;
+}

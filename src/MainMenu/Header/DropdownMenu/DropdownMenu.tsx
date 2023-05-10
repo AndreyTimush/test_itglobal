@@ -6,11 +6,14 @@ import { BelarusImg } from "../../../images/BelarusImg";
 import { RussianImg } from "../../../images/RussianImg";
 import { KazakhstanImg } from "../../../images/KazakhstanImg";
 import { TurkeyImg } from "../../../images/TurkeyImg";
-import { store } from "../../../App";
 import { useTranslation } from "react-i18next";
 import { SelectImg } from "../../../images/SelectImg";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState, changeLanguage } from "../../../store/store";
+import {
+  RootState,
+  changeLanguage,
+  isOpenedDropdownMenuAction,
+} from "../../../store/store";
 
 export function DropdownMenu() {
   const dispatch = useDispatch();
@@ -18,6 +21,8 @@ export function DropdownMenu() {
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = e.currentTarget;
+
+    dispatch(isOpenedDropdownMenuAction(false));
 
     const lang: string =
       target.getAttribute("data-country") ||

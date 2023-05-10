@@ -16,6 +16,7 @@ import {
   isOpenedMainMenuAction,
   isOpenedSubMenuAction,
   isOpenedLastMenuAction,
+  isOpenedDropdownMenuAction,
 } from "../../store/store";
 
 type ImageObject = {
@@ -33,14 +34,21 @@ const images: ImageObject = {
 
 export function Header() {
   const dispatch = useDispatch();
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  // const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const isDropdownOpen = useSelector<RootState, boolean>(
+    (state) => state.isOpenedDropdownMenu
+  );
 
   const currentLanguage = useSelector<RootState, string>((state) => state.lang);
   const imgSrc = images[currentLanguage];
 
   const handleClick = () => {
-    if (!isDropdownOpen) setIsDropdownOpen(true);
-    else setIsDropdownOpen(false);
+    dispatch(isOpenedDropdownMenuAction(!isDropdownOpen));
+    // if (!isDropDownOpen)
+    // dispatch(isOpenedDropdownMenuAction(true))
+    // else dispatch(isOpenedDropdownMenuAction(false))
+    // if (!isDropdownOpen) setIsDropdownOpen(true);
+    // else setIsDropdownOpen(false);
   };
 
   const handleClickCloseMainMenu = () => {

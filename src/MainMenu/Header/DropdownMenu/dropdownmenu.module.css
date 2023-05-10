@@ -19,6 +19,10 @@
   padding: 12px 10px 12px 15px;
 }
 
+.country:hover {
+  background-color: #f1f8fe;
+}
+
 .country:first-child {
   font-weight: 600;
 }
