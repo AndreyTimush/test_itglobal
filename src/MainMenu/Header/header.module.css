@@ -22,6 +22,11 @@
   padding: 7px 11px 7px 11px;
 }
 
+.lang:hover {
+  cursor: pointer;
+  background-color: #f1f8fe;
+}
+
 .lang p {
   margin-right: 5px;
 }

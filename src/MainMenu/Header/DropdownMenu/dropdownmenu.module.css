@@ -21,6 +21,7 @@
 
 .country:hover {
   background-color: #f1f8fe;
+  cursor: pointer;
 }
 
 .country:first-child {
