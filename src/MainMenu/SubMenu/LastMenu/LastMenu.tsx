@@ -21,11 +21,11 @@ export function LastMenu(props: IProps) {
 
   return (
     <div className={styles.subMenuMain}>
-      <div className={styles.headSubMenu} onClick={handleClickLastMenu}>
+      {/* <div className={styles.headSubMenu} onClick={handleClickLastMenu}>
         <ArrowLeftImg />
         <p>{props.currentMenu}</p>
-      </div>
-      <hr />
+      </div> */}
+      {/* <hr /> */}
       <div className={styles.lastMenu}>
         <div className={styles.lastMenuItems}>
           <div className={styles.lastMenuItem}>
@@ -51,6 +51,34 @@ export function LastMenu(props: IProps) {
             <p className={styles.header}>Hybrid Cloud</p>
             <p className={styles.description}>
               Data storage, AI, and analytics solutions for government agencies.
+            </p>
+          </div>
+          <div className={styles.lastMenuItem}>
+            <p className={styles.header}> MultiCloud</p>
+            <p className={styles.description}>
+              Relational database services for MySQL, PostgreSQL, and SQL
+              server.
+            </p>
+          </div>
+          <div className={styles.lastMenuItem}>
+            <p className={styles.header}> MultiCloud</p>
+            <p className={styles.description}>
+              Relational database services for MySQL, PostgreSQL, and SQL
+              server.
+            </p>
+          </div>
+          <div className={styles.lastMenuItem}>
+            <p className={styles.header}> MultiCloud</p>
+            <p className={styles.description}>
+              Relational database services for MySQL, PostgreSQL, and SQL
+              server.
+            </p>
+          </div>
+          <div className={styles.lastMenuItem}>
+            <p className={styles.header}> MultiCloud</p>
+            <p className={styles.description}>
+              Relational database services for MySQL, PostgreSQL, and SQL
+              server.
             </p>
           </div>
           <div className={styles.lastMenuItem}>

@@ -15,7 +15,10 @@ import {
   isOpenedSubMenuAction,
   isOpenedLastMenuAction,
   isOpenedDropdownMenuAction,
+  choosedLastMenuAction,
+  choosedSubMenuAction,
 } from "../../store/store";
+import { ArrowLeftImg } from "../../images/ArrowLeftImg";
 
 type ImageObject = {
   [key: string]: JSX.Element;
@@ -55,19 +58,59 @@ export function Header() {
     borderRadius: "2px",
   };
 
+  const choosedSubMenu = useSelector<RootState, string>(
+    (state) => state.choosedSubMenu
+  );
+
+  const choosedLastMenu = useSelector<RootState, string>(
+    (state) => state.choosedLastMenu
+  );
+
+  const handleClickBack = () => {
+    if (choosedLastMenu) {
+      dispatch(choosedLastMenuAction(""));
+      dispatch(isOpenedLastMenuAction(false));
+    } else {
+      dispatch(choosedSubMenuAction(""));
+      dispatch(isOpenedSubMenuAction(false));
+    }
+  };
+
+  const isOpenedLastMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedLastMenu
+  );
+  const isOpenedSubMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedSubMenu
+  );
+
+  console.log(isOpenedLastMenu, " ", isOpenedSubMenu);
+
   return (
     <>
       <div className={styles.headerMain}>
-        <div className={styles.language} onClick={handleClick}>
-          <div className={styles.lang} style={isDropdownOpen ? styleLang : {}}>
+        <div className={styles.langAndClose}>
+          <div
+            className={styles.lang}
+            onClick={handleClick}
+            style={isDropdownOpen ? styleLang : {}}
+          >
             <div className={styles.img}>{imgSrc}</div>
             <p>{currentLanguage.toUpperCase()}</p>
             <ArrowImg />
           </div>
+          <div className={styles.closeImg} onClick={handleClickCloseMainMenu}>
+            <CloseImg />
+          </div>
         </div>
-        <div onClick={handleClickCloseMainMenu}>
-          <CloseImg />
-        </div>
+        {(isOpenedLastMenu || isOpenedSubMenu) && (
+          <div className={styles.nameMenu} onClick={handleClickBack}>
+            <div className={styles.image}>
+              <ArrowLeftImg />
+            </div>
+            <p>{choosedLastMenu ? choosedLastMenu : choosedSubMenu}</p>
+          </div>
+        )}
+        {isOpenedLastMenu && <hr />}
       </div>
       {isDropdownOpen && <DropdownMenu />}
     </>

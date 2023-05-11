@@ -7,6 +7,7 @@ export type RootState = {
   isOpenedLastMenu: boolean;
   choosedSubMenu: string;
   isOpenedDropdownMenu: boolean;
+  choosedLastMenu: string;
 };
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
   isOpenedSubMenu: false,
   isOpenedLastMenu: false,
   choosedSubMenu: "",
+  choosedLastMenu: "",
   isOpenedDropdownMenu: false,
 };
 
@@ -23,6 +25,7 @@ const OPENED_MAIN_MENU = "OPENED_MAIN_MENU";
 const OPENED_SUB_MENU = "OPENED_SUB_MENU";
 const OPENED_LAST_MENU = "OPENED_LAST_MENU";
 const CHOOSED_SUB_MENU = "CHOOSED_SUB_MENU";
+const CHOOSED_LAST_MENU = "CHOOSED_LAST_MENU";
 const OPENED_DROWPDOWN_MENU = "OPENED_DROWPDOWN_MENU";
 
 export const changeLanguage: ActionCreator<AnyAction> = (lang) => ({
@@ -58,6 +61,13 @@ export const choosedSubMenuAction: ActionCreator<AnyAction> = (
   choosedSubMenu,
 });
 
+export const choosedLastMenuAction: ActionCreator<AnyAction> = (
+  choosedLastMenu
+) => ({
+  type: CHOOSED_LAST_MENU,
+  choosedLastMenu,
+});
+
 export const isOpenedDropdownMenuAction: ActionCreator<AnyAction> = (
   isOpenedDropdownMenu
 ) => ({
@@ -91,6 +101,11 @@ export const rootReducer: Reducer = (state = initialState, action) => {
       return {
         ...state,
         choosedSubMenu: action.choosedSubMenu,
+      };
+    case CHOOSED_LAST_MENU:
+      return {
+        ...state,
+        choosedLastMenu: action.choosedLastMenu,
       };
     case OPENED_DROWPDOWN_MENU:
       return {

@@ -5,6 +5,7 @@ import { ArrowRightImg } from "../../images/ArrowRightImg";
 import { useDispatch, useSelector } from "react-redux";
 import {
   RootState,
+  choosedLastMenuAction,
   isOpenedLastMenuAction,
   isOpenedSubMenuAction,
 } from "../../store/store";
@@ -29,6 +30,7 @@ export function SubMenu() {
     if (target && target.textContent) {
       setTextSubMenuClicked(target.textContent);
     }
+    dispatch(choosedLastMenuAction(target.textContent));
     dispatch(isOpenedLastMenuAction(true));
   };
 
@@ -40,10 +42,10 @@ export function SubMenu() {
     <>
       {!showLastMenu ? (
         <div className={styles.subMenuMain}>
-          <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
+          {/* <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
             <ArrowLeftImg />
             <p>{choosedMenu}</p>
-          </div>
+          </div> */}
           <div className={styles.subMenu} onClick={handleClickLastMenu}>
             <div className={styles.choiceMenu}>
               <p>Облачные вычисления</p>

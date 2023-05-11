@@ -1,15 +1,27 @@
 export function RussianImg() {
   return (
     <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M12 0H0V12H12V0Z" fill="#F1F8FE" />
-      <path d="M12 4H0V8H12V4Z" fill="#2F54EB" />
-      <path d="M12 8H0V12H12V8Z" fill="#F5222D" />
+      <mask
+        id="mask0_3392_40"
+        maskUnits="userSpaceOnUse"
+        x="2"
+        y="2"
+        width="12"
+        height="12"
+      >
+        <circle cx="8" cy="8" r="6" fill="#C4C4C4" />
+      </mask>
+      <g mask="url(#mask0_3392_40)">
+        <path d="M14 2H2V14H14V2Z" fill="#F1F8FE" />
+        <path d="M14 6H2V10H14V6Z" fill="#2F54EB" />
+        <path d="M14 10H2V14H14V10Z" fill="#F5222D" />
+      </g>
     </svg>
   );
 }

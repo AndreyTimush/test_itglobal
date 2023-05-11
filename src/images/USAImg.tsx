@@ -1,24 +1,36 @@
 export function USAImg() {
   return (
     <svg
-      width="12"
-      height="12"
-      viewBox="0 0 12 12"
+      width="16"
+      height="16"
+      viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M12 0H0V12H12V0Z" fill="#F1F8FE" />
-      <path d="M12 -1H0V1H12V-1Z" fill="#F5222D" />
-      <path d="M12 3H0V5H12V3Z" fill="#F5222D" />
-      <path d="M7 0H0V5H7V0Z" fill="#2F54EB" />
-      <path d="M12 7H0V9H12V7Z" fill="#F5222D" />
-      <path d="M12 11H0V13H12V11Z" fill="#F5222D" />
-      <circle cx="5.5" cy="1.5" r="0.5" fill="#F1F8FE" />
-      <circle cx="3.5" cy="1.5" r="0.5" fill="#F1F8FE" />
-      <circle cx="1.5" cy="1.5" r="0.5" fill="#F1F8FE" />
-      <circle cx="5.5" cy="3.5" r="0.5" fill="#F1F8FE" />
-      <circle cx="3.5" cy="3.5" r="0.5" fill="#F1F8FE" />
-      <circle cx="1.5" cy="3.5" r="0.5" fill="#F1F8FE" />
+      <mask
+        id="mask0_3392_99"
+        maskUnits="userSpaceOnUse"
+        x="2"
+        y="2"
+        width="12"
+        height="12"
+      >
+        <circle cx="8" cy="8" r="6" fill="#C4C4C4" />
+      </mask>
+      <g mask="url(#mask0_3392_99)">
+        <path d="M14 2H2V14H14V2Z" fill="#F1F8FE" />
+        <path d="M14 1H2V3H14V1Z" fill="#F5222D" />
+        <path d="M14 5H2V7H14V5Z" fill="#F5222D" />
+        <path d="M9 2H2V7H9V2Z" fill="#2F54EB" />
+        <path d="M14 9H2V11H14V9Z" fill="#F5222D" />
+        <path d="M14 13H2V15H14V13Z" fill="#F5222D" />
+        <circle cx="7.5" cy="3.5" r="0.5" fill="#F1F8FE" />
+        <circle cx="5.5" cy="3.5" r="0.5" fill="#F1F8FE" />
+        <circle cx="3.5" cy="3.5" r="0.5" fill="#F1F8FE" />
+        <circle cx="7.5" cy="5.5" r="0.5" fill="#F1F8FE" />
+        <circle cx="5.5" cy="5.5" r="0.5" fill="#F1F8FE" />
+        <circle cx="3.5" cy="5.5" r="0.5" fill="#F1F8FE" />
+      </g>
     </svg>
   );
 }
