@@ -3,10 +3,15 @@ import "./styles.global.module.css";
 import styles from "./App.module.css";
 import { BurgerMenuImg } from "./images/BurgerMenuImg";
 import { createStore } from "redux";
-import { initReactI18next } from "react-i18next";
+import { initReactI18next, useTranslation } from "react-i18next";
 import i18n from "i18next";
 import translationRu from "./locales/ru.json";
 import translationEn from "./locales/en.json";
+import translationBy from "./locales/by.json";
+import translationTr from "./locales/tr.json";
+import translationKz from "./locales/kz.json";
+import translationNld from "./locales/nld.json";
+
 import { composeWithDevTools } from "redux-devtools-extension";
 import { Provider, useDispatch, useSelector } from "react-redux";
 import { RootState, isOpenedMainMenuAction, rootReducer } from "./store/store";
@@ -23,11 +28,24 @@ i18n.use(initReactI18next).init({
     ru: {
       translation: translationRu,
     },
+    by: {
+      translation: translationBy,
+    },
+    tr: {
+      translation: translationTr,
+    },
+    nld: {
+      translation: translationNld,
+    },
+    kz: {
+      translation: translationKz,
+    },
   },
 });
 
 function App() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleClick = () => {
     dispatch(isOpenedMainMenuAction(true));
@@ -45,7 +63,7 @@ function App() {
             <BurgerMenuImg />
           </div>
           <div className={styles.mainPage}>
-            <h1>Main page</h1>
+            <h1>{t("mainPage")}</h1>
           </div>
         </>
       ) : (

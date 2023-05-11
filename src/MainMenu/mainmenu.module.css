@@ -47,6 +47,10 @@
   animation: slideDown 0.5s ease;
 }
 
+.footer p:hover {
+  cursor: pointer;
+}
+
 .footer p:first-child {
   margin-bottom: 20px;
 }

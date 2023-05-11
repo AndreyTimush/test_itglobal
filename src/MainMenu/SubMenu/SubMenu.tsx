@@ -10,8 +10,10 @@ import {
   isOpenedSubMenuAction,
 } from "../../store/store";
 import { LastMenu } from "./LastMenu";
+import { useTranslation } from "react-i18next";
 
 export function SubMenu() {
+  const { t } = useTranslation();
   const [textSubMenuClicked, setTextSubMenuClicked] = useState("");
   const showLastMenu = useSelector<RootState, boolean>(
     (state) => state.isOpenedLastMenu
@@ -48,19 +50,19 @@ export function SubMenu() {
           </div> */}
           <div className={styles.subMenu} onClick={handleClickLastMenu}>
             <div className={styles.choiceMenu}>
-              <p>Облачные вычисления</p>
+              <p>{t("cloudComputing")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>Выделенные серверы</p>
+              <p>{t("dedicatedServers")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>Платформенные сервисы</p>
+              <p>{t("platformServices")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>Информационная безопасность</p>
+              <p>{t("informationSecurity")}</p>
               <ArrowRightImg />
             </div>
           </div>

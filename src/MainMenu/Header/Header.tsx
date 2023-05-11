@@ -79,11 +79,12 @@ export function Header() {
   const isOpenedLastMenu = useSelector<RootState, boolean>(
     (state) => state.isOpenedLastMenu
   );
+
   const isOpenedSubMenu = useSelector<RootState, boolean>(
     (state) => state.isOpenedSubMenu
   );
 
-  console.log(isOpenedLastMenu, " ", isOpenedSubMenu);
+  console.log("choosedLastMenu - ", choosedLastMenu);
 
   return (
     <>

@@ -1,8 +1,21 @@
 {
   "services": "Сервисы",
-  "managedIT": "IT Манагер",
-  "telecomSolutions": "Телеком решения",
+  "managedIT": "Управляемые ИТ",
+  "telecomSolutions": "Телекоммуникационные решения",
   "aboutUs": "О нас",
   "contacts": "Контакты",
-  "search": "Поиск"
+  "search": "Поиск",
+  "mainPage": "Главная страница",
+  "cloudComputing": "Облачные вычисления",
+  "dedicatedServers": "Выделенные серверы",
+  "platformServices": "Платформенные сервисы",
+  "informationSecurity": "Информационная безопасность",
+  "cloudConsulting": "Облачный консалтинг",
+  "descrCloudConsulting": "Службы реляционных баз данных для MySQL, PostgerSQL и SQL-сервера.",
+  "cloudInfrastructureAnalytics": "Аналитика облачной инфраструктуры",
+  "descrCloudInfrastructureAnalytics": "Специализированные медицинские решения для улучшения качества обслуживания пациентов.",
+  "hybridCloud": "Гибридное Облако",
+  "descrHybridCloud": "Решения для хранения данных, искусственного интеллекта и аналитики для государственных учреждений.",
+  "multiCloud": "Мультиоблако",
+  "descrMultiCloud": "Службы реляционных баз данных для MySQL, PostgreSQL и SQL-сервера."
 }

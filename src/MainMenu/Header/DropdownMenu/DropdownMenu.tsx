@@ -18,6 +18,7 @@ import {
 export function DropdownMenu() {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
+  const currentLanguage = useSelector<RootState, string>((state) => state.lang);
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = e.currentTarget;
@@ -34,8 +35,6 @@ export function DropdownMenu() {
       dispatch(changeLanguage(lang));
     }
   };
-
-  const currentLanguage = useSelector<RootState, string>((state) => state.lang);
 
   return (
     <div className={styles.languages}>

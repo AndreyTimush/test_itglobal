@@ -4,5 +4,18 @@
   "telecomSolutions": "Telecom Solutions",
   "aboutUs": "About Us",
   "contacts": "Contacts",
-  "search": "Search"
+  "search": "Search",
+  "mainPage": "Main page",
+  "cloudComputing": "Cloud computing",
+  "dedicatedServers": "Dedicated servers",
+  "platformServices": "Platform services",
+  "informationSecurity": "Information Security",
+  "cloudConsulting": "Cloud consulting",
+  "descrCloudConsulting": "Relational database services for MySQL, PostgerSQL, and SQL server.",
+  "cloudInfrastructureAnalytics": "Cloud infrastructure analytics",
+  "descrCloudInfrastructureAnalytics": "Health-specific solutions to enhance the patient experience.",
+  "hybridCloud": "Hybrid Cloud",
+  "descrHybridCloud": "Data storage, AI, and analytics solutions for government agencies.",
+  "multiCloud": "MultiCloud",
+  "descrMultiCloud": "Relational database services for MySQL, PostgreSQL, and SQL server."
 }

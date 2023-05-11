@@ -1,0 +1,21 @@
+{
+  "services": "Паслугі",
+  "managedIT": "Кіраваныя ІТ",
+  "telecomSolutions": "Тэлекамунікацыйныя рашэнні",
+  "aboutUs": "Пра нас",
+  "contacts": "Кантакты",
+  "search": "Пошук",
+  "mainPage": "Галоўная старонка",
+  "cloudComputing": "Воблачныя вылічэнні",
+  "dedicatedServers": "Выдзеленыя серверы",
+  "platformServices": "Сэрвісы платформы",
+  "informationSecurity": "Інфармацыйная бяспека",
+  "cloudConsulting": "Воблачныя кансультацыі",
+  "descrCloudConsulting": "Службы рэляцыйных баз дадзеных для MySQL, PostgerSQL і SQL-сервера.",
+  "cloudInfrastructureAnalytics": "Аналітыка воблачнай інфраструктуры",
+  "descrCloudInfrastructureAnalytics": "Спецыяльныя рашэнні для аховы здароўя для паляпшэння вопыту пацыента.",
+  "hybridCloud": "Гібрыднае воблака",
+  "descrHybridCloud": "Рашэнні для захавання даных, AI і аналітыкі для дзяржаўных устаноў.",
+  "multiCloud": "Шматвоблака",
+  "descrMultiCloud": "Службы рэляцыйных баз дадзеных для сервераў MySQL, PostgreSQL і SQL."
+}

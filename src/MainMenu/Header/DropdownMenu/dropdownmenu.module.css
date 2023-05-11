@@ -19,7 +19,7 @@
   padding: 12px 10px 12px 15px;
 }
 
-.country:hover {
+.country:hover:not(:first-child) {
   background-color: #f1f8fe;
   cursor: pointer;
 }

@@ -6,6 +6,7 @@ import {
   isOpenedSubMenuAction,
 } from "../../../store/store";
 import { useDispatch } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 interface IProps {
   currentMenu?: string;
@@ -13,6 +14,7 @@ interface IProps {
 
 export function LastMenu(props: IProps) {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleClickLastMenu = () => {
     dispatch(isOpenedLastMenuAction(false));
@@ -29,85 +31,54 @@ export function LastMenu(props: IProps) {
       <div className={styles.lastMenu}>
         <div className={styles.lastMenuItems}>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}>Cloud consulting</p>
+            <p className={styles.header}>{t("cloudConsulting")}</p>
+            <p className={styles.description}>{t("descrCloudConsulting")}</p>
+          </div>
+          <div className={styles.lastMenuItem}>
+            <p className={styles.header}>{t("cloudInfrastructureAnalytics")}</p>
             <p className={styles.description}>
-              Relational database services for MySQL, PostgerSQL, and SQL
-              server.
+              {t("descrCloudInfrastructureAnalytics")}
             </p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}>Cloud infrastructure analytics</p>
-            <p className={styles.description}>
-              Health-specific solutions to enhance the patient experience.
-            </p>
+            <p className={styles.header}>{t("hybridCloud")}</p>
+            <p className={styles.description}>{t("descrHybridCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}>Hybrid Cloud</p>
-            <p className={styles.description}>
-              Data storage, AI, and analytics solutions for government agencies.
-            </p>
+            <p className={styles.header}>{t("hybridCloud")}</p>
+            <p className={styles.description}>{t("descrHybridCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}>Hybrid Cloud</p>
-            <p className={styles.description}>
-              Data storage, AI, and analytics solutions for government agencies.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
           <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
-          </div>
-          <div className={styles.lastMenuItem}>
-            <p className={styles.header}> MultiCloud</p>
-            <p className={styles.description}>
-              Relational database services for MySQL, PostgreSQL, and SQL
-              server.
-            </p>
+            <p className={styles.header}> {t("multiCloud")}</p>
+            <p className={styles.description}>{t("descrMultiCloud")}</p>
           </div>
         </div>
       </div>
