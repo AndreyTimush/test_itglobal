@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styles from "./submenu.module.css";
-import { ArrowLeftImg } from "../../images/ArrowLeftImg";
 import { ArrowRightImg } from "../../images/ArrowRightImg";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -44,25 +43,21 @@ export function SubMenu() {
     <>
       {!showLastMenu ? (
         <div className={styles.subMenuMain}>
-          {/* <div className={styles.headSubMenu} onClick={handleClickMainMenu}>
-            <ArrowLeftImg />
-            <p>{choosedMenu}</p>
-          </div> */}
           <div className={styles.subMenu} onClick={handleClickLastMenu}>
             <div className={styles.choiceMenu}>
-              <p>{t("cloudComputing")}</p>
+              <p>{t("Cloud computing")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>{t("dedicatedServers")}</p>
+              <p>{t("Dedicated servers")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>{t("platformServices")}</p>
+              <p>{t("Platform services")}</p>
               <ArrowRightImg />
             </div>
             <div className={styles.choiceMenu}>
-              <p>{t("informationSecurity")}</p>
+              <p>{t("Information Security")}</p>
               <ArrowRightImg />
             </div>
           </div>

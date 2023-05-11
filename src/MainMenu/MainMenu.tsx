@@ -35,27 +35,27 @@ export function MainMenu() {
       {!showSubMenu && (
         <div className={styles.menu} onClick={handleClick}>
           <div className={styles.choiceMenu}>
-            <p>{t("services")}</p>
+            <p>{t("Services")}</p>
             <ArrowRightImg />
           </div>
           <div className={styles.choiceMenu}>
-            <p>{t("managedIT")}</p>
+            <p>{t("Managed IT")}</p>
             <ArrowRightImg />
           </div>
           <div className={styles.choiceMenu}>
-            <p>{t("telecomSolutions")}</p>
+            <p>{t("Telecom Solutions")}</p>
             <ArrowRightImg />
           </div>
           <div className={styles.choiceMenu}>
-            <p>{t("aboutUs")}</p>
+            <p>{t("About Us")}</p>
             <ArrowRightImg />
           </div>
         </div>
       )}
       {!showSubMenu && (
         <div className={styles.footer}>
-          <p>{t("contacts")}</p>
-          <p>{t("search")}</p>
+          <p>{t("Contacts")}</p>
+          <p>{t("Search")}</p>
         </div>
       )}
 

@@ -63,7 +63,7 @@ function App() {
             <BurgerMenuImg />
           </div>
           <div className={styles.mainPage}>
-            <h1>{t("mainPage")}</h1>
+            <h1>{t("Main page")}</h1>
           </div>
         </>
       ) : (
