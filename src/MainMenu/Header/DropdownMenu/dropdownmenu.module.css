@@ -1,6 +1,6 @@
 .languages {
   position: fixed;
-  background-color: white;
+  background-color: var(--white);
   box-shadow: 0px 6px 10px rgba(116, 137, 155, 0.06),
     0px 1px 18px rgba(116, 137, 155, 0.04),
     0px 3px 5px rgba(116, 137, 155, 0.08);
@@ -20,7 +20,7 @@
 }
 
 .country:hover:not(:first-child) {
-  background-color: #f1f8fe;
+  background-color: var(--selection);
   cursor: pointer;
 }
 

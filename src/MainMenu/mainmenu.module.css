@@ -34,6 +34,7 @@
 
 .choiceMenu:hover {
   cursor: pointer;
+  background-color: var(--selection);
 }
 
 .footer {
@@ -90,19 +91,8 @@
   margin-bottom: 5px;
 }
 
-.description {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  color: #577188;
-}
-
 .lastMenuItem {
   height: 96px;
-}
-
-.choiceMenu:hover {
-  background-color: #f1f8fe;
 }
 
 .emptyPage {

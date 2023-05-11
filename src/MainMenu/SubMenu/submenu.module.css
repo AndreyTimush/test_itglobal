@@ -7,6 +7,7 @@
 
 .choiceMenu:hover {
   cursor: pointer;
+  background-color: var(--selection);
 }
 
 .headSubMenu {

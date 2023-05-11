@@ -1,5 +1,9 @@
 :root {
   font-family: "Golos";
+  --selection: #f1f8fe;
+  --white: white;
+  --line: #c6d6e5;
+  --description: #577188;
 }
 
 * {
