@@ -17,6 +17,8 @@ import {
   isOpenedDropdownMenuAction,
   choosedLastMenuAction,
   choosedSubMenuAction,
+  isOpenedContactsAction,
+  isOpenedSearchAction,
 } from "../../store/store";
 import { ArrowLeftImg } from "../../images/ArrowLeftImg";
 
@@ -50,6 +52,8 @@ export function Header() {
     dispatch(isOpenedMainMenuAction(false));
     dispatch(isOpenedSubMenuAction(false));
     dispatch(isOpenedLastMenuAction(false));
+    dispatch(isOpenedContactsAction(false));
+    dispatch(isOpenedSearchAction(false));
   };
 
   const styleLang = {
@@ -83,8 +87,6 @@ export function Header() {
   const isOpenedSubMenu = useSelector<RootState, boolean>(
     (state) => state.isOpenedSubMenu
   );
-
-  console.log("choosedLastMenu - ", choosedLastMenu);
 
   return (
     <>

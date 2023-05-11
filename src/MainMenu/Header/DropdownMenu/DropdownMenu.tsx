@@ -9,16 +9,34 @@ import { TurkeyImg } from "../../../images/TurkeyImg";
 import { useTranslation } from "react-i18next";
 import { SelectImg } from "../../../images/SelectImg";
 import { useDispatch, useSelector } from "react-redux";
+import { choosedLastMenuAction } from "../../../store/store";
 import {
   RootState,
   changeLanguage,
+  choosedSubMenuAction,
   isOpenedDropdownMenuAction,
 } from "../../../store/store";
 
 export function DropdownMenu() {
   const dispatch = useDispatch();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   const currentLanguage = useSelector<RootState, string>((state) => state.lang);
+
+  const choosedSubMenuKey = useSelector<RootState, string>(
+    (state) => state.choosedSubMenuKey
+  );
+
+  const choosedLastMenuKey = useSelector<RootState, string>(
+    (state) => state.choosedLastMenuKey
+  );
+
+  const isOpenedSubMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedSubMenu
+  );
+
+  const isOpenedLastMenu = useSelector<RootState, boolean>(
+    (state) => state.isOpenedLastMenu
+  );
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const target = e.currentTarget;
@@ -33,6 +51,9 @@ export function DropdownMenu() {
     if (lang !== null) {
       i18n.changeLanguage(lang);
       dispatch(changeLanguage(lang));
+      if (isOpenedLastMenu)
+        dispatch(choosedLastMenuAction(t(choosedLastMenuKey)));
+      if (isOpenedSubMenu) dispatch(choosedSubMenuAction(t(choosedSubMenuKey)));
     }
   };
 

@@ -8,6 +8,10 @@ export type RootState = {
   choosedSubMenu: string;
   isOpenedDropdownMenu: boolean;
   choosedLastMenu: string;
+  choosedSubMenuKey: string;
+  choosedLastMenuKey: string;
+  isOpenedContacts: boolean;
+  isOpenedSearch: boolean;
 };
 
 const initialState = {
@@ -18,6 +22,10 @@ const initialState = {
   choosedSubMenu: "",
   choosedLastMenu: "",
   isOpenedDropdownMenu: false,
+  choosedSubMenuKey: "",
+  choosedLastMenuKey: "",
+  isOpenedContacts: false,
+  isOpenedSearch: false,
 };
 
 const CHANGE_LANGUAGE = "CHANGE_LANGUAGE";
@@ -27,6 +35,10 @@ const OPENED_LAST_MENU = "OPENED_LAST_MENU";
 const CHOOSED_SUB_MENU = "CHOOSED_SUB_MENU";
 const CHOOSED_LAST_MENU = "CHOOSED_LAST_MENU";
 const OPENED_DROWPDOWN_MENU = "OPENED_DROWPDOWN_MENU";
+const CHOOSED_SUB_MENU_KEY = "CHOOSED_SUB_MENU_KEY";
+const CHOOSED_LAST_MENU_KEY = "CHOOSED_LAST_MENU_KEY";
+const IS_OPENED_CONTACTS = "IS_OPENED_CONTACTS";
+const IS_OPENED_SEARCH = "IS_OPENED_SEARCH";
 
 export const changeLanguage: ActionCreator<AnyAction> = (lang) => ({
   type: CHANGE_LANGUAGE,
@@ -75,6 +87,34 @@ export const isOpenedDropdownMenuAction: ActionCreator<AnyAction> = (
   isOpenedDropdownMenu,
 });
 
+export const choosedSubMenuKeyAction: ActionCreator<AnyAction> = (
+  choosedSubMenuKey
+) => ({
+  type: CHOOSED_SUB_MENU_KEY,
+  choosedSubMenuKey,
+});
+
+export const choosedLastMenuKeyAction: ActionCreator<AnyAction> = (
+  choosedLastMenuKey
+) => ({
+  type: CHOOSED_LAST_MENU_KEY,
+  choosedLastMenuKey,
+});
+
+export const isOpenedContactsAction: ActionCreator<AnyAction> = (
+  isOpenedContacts
+) => ({
+  type: IS_OPENED_CONTACTS,
+  isOpenedContacts,
+});
+
+export const isOpenedSearchAction: ActionCreator<AnyAction> = (
+  isOpenedSearch
+) => ({
+  type: IS_OPENED_SEARCH,
+  isOpenedSearch,
+});
+
 export const rootReducer: Reducer = (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_LANGUAGE:
@@ -111,6 +151,26 @@ export const rootReducer: Reducer = (state = initialState, action) => {
       return {
         ...state,
         isOpenedDropdownMenu: action.isOpenedDropdownMenu,
+      };
+    case CHOOSED_SUB_MENU_KEY:
+      return {
+        ...state,
+        choosedSubMenuKey: action.choosedSubMenuKey,
+      };
+    case CHOOSED_LAST_MENU_KEY:
+      return {
+        ...state,
+        choosedLastMenuKey: action.choosedLastMenuKey,
+      };
+    case IS_OPENED_CONTACTS:
+      return {
+        ...state,
+        isOpenedContacts: action.isOpenedContacts,
+      };
+    case IS_OPENED_SEARCH:
+      return {
+        ...state,
+        isOpenedSearch: action.isOpenedSearch,
       };
     default:
       return state;

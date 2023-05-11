@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   RootState,
   choosedLastMenuAction,
+  choosedLastMenuKeyAction,
   isOpenedLastMenuAction,
   isOpenedSubMenuAction,
 } from "../../store/store";
@@ -28,6 +29,7 @@ export function SubMenu() {
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
     const target = event.target as HTMLDivElement;
+    dispatch(choosedLastMenuKeyAction(event.currentTarget.dataset.text));
     if (target && target.textContent) {
       setTextSubMenuClicked(target.textContent);
     }
@@ -43,20 +45,36 @@ export function SubMenu() {
     <>
       {!showLastMenu ? (
         <div className={styles.subMenuMain}>
-          <div className={styles.subMenu} onClick={handleClickLastMenu}>
-            <div className={styles.choiceMenu}>
+          <div className={styles.subMenu}>
+            <div
+              data-text="Cloud computing"
+              className={styles.choiceMenu}
+              onClick={handleClickLastMenu}
+            >
               <p>{t("Cloud computing")}</p>
               <ArrowRightImg />
             </div>
-            <div className={styles.choiceMenu}>
+            <div
+              data-text="Dedicated servers"
+              className={styles.choiceMenu}
+              onClick={handleClickLastMenu}
+            >
               <p>{t("Dedicated servers")}</p>
               <ArrowRightImg />
             </div>
-            <div className={styles.choiceMenu}>
+            <div
+              data-text="Platform services"
+              className={styles.choiceMenu}
+              onClick={handleClickLastMenu}
+            >
               <p>{t("Platform services")}</p>
               <ArrowRightImg />
             </div>
-            <div className={styles.choiceMenu}>
+            <div
+              data-text="Information Security"
+              className={styles.choiceMenu}
+              onClick={handleClickLastMenu}
+            >
               <p>{t("Information Security")}</p>
               <ArrowRightImg />
             </div>

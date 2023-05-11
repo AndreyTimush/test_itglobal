@@ -104,3 +104,18 @@
 .choiceMenu:hover {
   background-color: #f1f8fe;
 }
+
+.emptyPage {
+  display: flex;
+  align-items: center;
+  margin-top: 157px;
+  margin-left: 20px;
+}
+
+.emptyPage:hover {
+  cursor: pointer;
+}
+
+.emptyPage h1 {
+  margin-left: 10px;
+}
