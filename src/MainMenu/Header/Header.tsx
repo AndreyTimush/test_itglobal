@@ -19,6 +19,8 @@ import {
   choosedSubMenuAction,
   isOpenedContactsAction,
   isOpenedSearchAction,
+  choosedSubMenuKeyAction,
+  choosedLastMenuKeyAction,
 } from "../../store/store";
 import { ArrowLeftImg } from "../../images/ArrowLeftImg";
 
@@ -54,6 +56,10 @@ export function Header() {
     dispatch(isOpenedLastMenuAction(false));
     dispatch(isOpenedContactsAction(false));
     dispatch(isOpenedSearchAction(false));
+    dispatch(choosedLastMenuAction(""));
+    dispatch(choosedSubMenuAction(""));
+    dispatch(choosedSubMenuKeyAction(""));
+    dispatch(choosedLastMenuKeyAction(""));
   };
 
   const styleLang = {
