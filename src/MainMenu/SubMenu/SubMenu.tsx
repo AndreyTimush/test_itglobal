@@ -7,7 +7,6 @@ import {
   choosedLastMenuAction,
   choosedLastMenuKeyAction,
   isOpenedLastMenuAction,
-  isOpenedSubMenuAction,
 } from "../../store/store";
 import { LastMenu } from "./LastMenu";
 import { useTranslation } from "react-i18next";
@@ -21,10 +20,6 @@ export function SubMenu() {
 
   const dispatch = useDispatch();
 
-  const handleClickMainMenu = () => {
-    dispatch(isOpenedSubMenuAction(false));
-  };
-
   const handleClickLastMenu = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
@@ -36,10 +31,6 @@ export function SubMenu() {
     dispatch(choosedLastMenuAction(target.textContent));
     dispatch(isOpenedLastMenuAction(true));
   };
-
-  const choosedMenu = useSelector<RootState, string>(
-    (state) => state.choosedSubMenu
-  );
 
   return (
     <>
